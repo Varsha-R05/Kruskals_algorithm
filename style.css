@@ -72,25 +72,4 @@ button:hover {
     margin-top: 20px;
 }
 
-@media (max-width: 480px) {
-  .sidebar {
-    width: 140px; /* Narrower sidebar on mobile */
-    padding: 10px;
-  }
 
-  /* Adjust button styles for mobile */
-  .side-btn {
-    font-size: 14px; /* Smaller text */
-    padding: 8px; /* Less padding */
-    margin: 5px 0; /* Spacing between buttons */
-    width: 100%; /* Full width for buttons */
-  }
-
-  /* Ensure content area adjusts properly */
-  .content {
-    margin-left: 140px; /* Push content right to accommodate sidebar */
-    padding: 10px;
-    max-width: calc(100% - 140px);
-    box-sizing: border-box;
-  }
-}
