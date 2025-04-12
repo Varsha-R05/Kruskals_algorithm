@@ -74,7 +74,7 @@ button:hover {
 
 @media (max-width: 480px) {
     .sidebar {
-        width: 140px; /* Slightly smaller sidebar to fit phone screens */
+        width: 140px;
         padding: 10px;
     }
 
@@ -87,3 +87,4 @@ button:hover {
         font-size: 13px;
     }
 }
+
