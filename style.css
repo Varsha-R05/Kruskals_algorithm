@@ -73,24 +73,23 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-    .container {
-        flex-direction: column; /* Ensures sidebar stays on the left */
-    }
+  .container {
+    flex-direction: column; /* Sidebar will be above content */
+  }
 
-    .sidebar {
-        width: 140px; /* Slightly narrower sidebar for smaller screens */
-        padding: 10px;
-        height: 100vh; /* Keep it full height */
-        box-sizing: border-box;
-    }
+  .sidebar {
+    width: 100%; /* Sidebar will take up full width */
+    height: auto; /* Adjust height to fit content */
+    padding: 10px;
+  }
 
-    .content {
-        padding: 10px;
-        box-sizing: border-box;
-    }
+  .content {
+    width: 100%; /* Content also takes full width */
+    padding: 10px;
+  }
 
-    button {
-        padding: 6px;
-        font-size: 13px;
-    }
+  button {
+    padding: 6px;
+    font-size: 13px;
+  }
 }
