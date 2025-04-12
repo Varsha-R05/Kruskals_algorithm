@@ -72,46 +72,37 @@ button:hover {
     margin-top: 20px;
 }
 
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: row; /* Keep layout horizontal */
+        flex-wrap: nowrap;
+    }
 
-@media (max-width: 768px) {
-  .container {
-    display: flex;
-    flex-direction: row; /* Keep layout horizontal */
-    height: 100vh;
-    overflow: hidden;
-  }
+    .sidebar {
+        width: 140px; /* Narrower sidebar for phones */
+        padding: 10px;
+        height: 100vh;
+        flex-shrink: 0;
+        overflow-y: auto;
+    }
 
-  .sidebar {
-    width: 140px; /* Reduce sidebar width */
-    padding: 10px;
-    height: 100vh;
-    overflow-y: auto;
-    box-sizing: border-box;
-    flex-shrink: 0;
-  }
+    .sidebar button {
+        font-size: 13px;
+        padding: 6px;
+        margin: 5px 0;
+        white-space: nowrap;
+    }
 
-  .content {
-    flex: 1;
-    padding: 10px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    max-width: calc(100% - 140px); /* Adjust content width */
-  }
+    .graph-container {
+        padding: 10px;
+        overflow-x: auto;
+    }
 
-  .side-btn {
-    font-size: 14px;
-    padding: 8px;
-    margin: 6px 0;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  button {
-    font-size: 14px;
-    padding: 8px;
-  }
+    #step-log {
+        width: 100%;
+        max-width: 100%;
+    }
 }
-
 
 
 
