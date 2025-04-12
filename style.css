@@ -74,7 +74,7 @@ button:hover {
 
 @media (max-width: 480px) {
   .container {
-    flex-direction: row; /* Ensure the sidebar stays on the left in mobile */
+    flex-direction: row; /* Ensure the sidebar stays on the left */
   }
 
   .sidebar {
@@ -88,9 +88,18 @@ button:hover {
   }
 
   .content {
-    margin-left: 140px; /* Adjust the margin to make space for the sidebar */
+    margin-left: 140px; /* Adjust content to the right side */
     padding: 10px;
+    max-width: calc(100% - 140px); /* Ensure content takes available width */
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scroll */
   }
+
+  button {
+    padding: 6px;
+    font-size: 13px;
+  }
+}
 
   button {
     padding: 6px;
