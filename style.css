@@ -73,13 +73,20 @@ button:hover {
 }
 
 @media (max-width: 480px) {
+    .container {
+        flex-direction: row; /* Ensures sidebar stays on the left */
+    }
+
     .sidebar {
-        width: 140px;
+        width: 140px; /* Slightly narrower sidebar for smaller screens */
         padding: 10px;
+        height: 100vh; /* Keep it full height */
+        box-sizing: border-box;
     }
 
     .content {
         padding: 10px;
+        box-sizing: border-box;
     }
 
     button {
@@ -87,4 +94,3 @@ button:hover {
         font-size: 13px;
     }
 }
-
