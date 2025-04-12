@@ -74,17 +74,17 @@ button:hover {
 
 @media (max-width: 480px) {
   .container {
-    flex-direction: row; /* Sidebar will be above content */
+    flex-direction: column; /* Stack the sidebar above the content */
   }
 
   .sidebar {
-    width: 100%; /* Sidebar will take up full width */
-    height: auto; /* Adjust height to fit content */
+    width: 100%; /* Sidebar takes full width on mobile */
+    height: auto; /* Sidebar height adjusts */
     padding: 10px;
   }
 
   .content {
-    width: 100%; /* Content also takes full width */
+    width: 100%; /* Content takes full width */
     padding: 10px;
   }
 
