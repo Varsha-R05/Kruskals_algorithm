@@ -71,30 +71,39 @@ button:hover {
     text-align: center;
     margin-top: 20px;
 }
+
+
 @media (max-width: 768px) {
   .container {
-    flex-direction: row; /* Keep sidebar on the left, content on right */
-    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row; /* Keep layout horizontal */
+    height: 100vh;
+    overflow: hidden;
   }
 
   .sidebar {
-    width: 140px;
+    width: 140px; /* Reduce sidebar width */
     padding: 10px;
     height: 100vh;
     overflow-y: auto;
+    box-sizing: border-box;
+    flex-shrink: 0;
   }
 
   .content {
     flex: 1;
     padding: 10px;
-    max-width: calc(100% - 140px);
-    overflow-x: hidden;
+    box-sizing: border-box;
+    overflow-y: auto;
+    max-width: calc(100% - 140px); /* Adjust content width */
   }
 
   .side-btn {
     font-size: 14px;
     padding: 8px;
-    margin: 5px 0;
+    margin: 6px 0;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   button {
@@ -102,6 +111,7 @@ button:hover {
     padding: 8px;
   }
 }
+
 
 
 
