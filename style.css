@@ -96,14 +96,24 @@ button:hover {
   }
 
   button {
-    padding: 6px;
-    font-size: 13px;
+    padding: 8px;
+    font-size: 14px; /* Adjust button font size for smaller screens */
+    width: auto; /* Buttons take the available space but with adjusted font size */
+    margin: 8px 0; /* Adjust button margin for better spacing */
+  }
+
+  #canvas-holder {
+    margin-top: 15px;
+  }
+
+  .button-container {
+    margin-bottom: 15px;
+  }
+
+  /* Ensure 'Generate Random Graph' and 'C Function' fit well */
+  .side-btn {
+    font-size: 14px;
+    padding: 8px;
+    margin: 5px 0;
   }
 }
-
-  button {
-    padding: 6px;
-    font-size: 13px;
-  }
-}
-
