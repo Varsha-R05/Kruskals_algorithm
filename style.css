@@ -71,6 +71,37 @@ button:hover {
     text-align: center;
     margin-top: 20px;
 }
+@media (max-width: 768px) {
+  .container {
+    flex-direction: row; /* Keep sidebar on the left, content on right */
+    flex-wrap: nowrap;
+  }
+
+  .sidebar {
+    width: 140px;
+    padding: 10px;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .content {
+    flex: 1;
+    padding: 10px;
+    max-width: calc(100% - 140px);
+    overflow-x: hidden;
+  }
+
+  .side-btn {
+    font-size: 14px;
+    padding: 8px;
+    margin: 5px 0;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
 
 
 
