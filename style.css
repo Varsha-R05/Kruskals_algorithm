@@ -74,17 +74,21 @@ button:hover {
 
 @media (max-width: 480px) {
   .container {
-    flex-direction: row; /* Stack the sidebar above the content */
+    flex-direction: row; /* Ensure the sidebar stays on the left in mobile */
   }
 
   .sidebar {
-    width: 100%; /* Sidebar takes full width on mobile */
-    height: auto; /* Sidebar height adjusts */
+    width: 140px; /* Narrower sidebar for mobile */
     padding: 10px;
+    height: 100vh; /* Keep it full height */
+    box-sizing: border-box;
+    position: fixed; /* Sidebar stays fixed on the left */
+    top: 0;
+    left: 0;
   }
 
   .content {
-    width: 90%; /* Content takes full width */
+    margin-left: 140px; /* Adjust the margin to make space for the sidebar */
     padding: 10px;
   }
 
@@ -93,3 +97,4 @@ button:hover {
     font-size: 13px;
   }
 }
+
