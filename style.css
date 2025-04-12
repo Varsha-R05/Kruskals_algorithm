@@ -74,7 +74,7 @@ button:hover {
 
 @media (max-width: 480px) {
     .container {
-        flex-direction: row; /* Ensures sidebar stays on the left */
+        flex-direction: column; /* Ensures sidebar stays on the left */
     }
 
     .sidebar {
