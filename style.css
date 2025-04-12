@@ -73,47 +73,24 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-  .container {
-    flex-direction: row; /* Ensure the sidebar stays on the left */
-  }
-
   .sidebar {
-    width: 140px; /* Narrower sidebar for mobile */
+    width: 140px; /* Narrower sidebar on mobile */
     padding: 10px;
-    height: 100vh; /* Keep it full height */
-    box-sizing: border-box;
-    position: fixed; /* Sidebar stays fixed on the left */
-    top: 0;
-    left: 0;
   }
 
-  .content {
-    margin-left: 140px; /* Adjust content to the right side */
-    padding: 10px;
-    max-width: calc(100% - 140px); /* Ensure content takes available width */
-    box-sizing: border-box;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-  }
-
-  button {
-    padding: 8px;
-    font-size: 14px; /* Adjust button font size for smaller screens */
-    width: auto; /* Buttons take the available space but with adjusted font size */
-    margin: 8px 0; /* Adjust button margin for better spacing */
-  }
-
-  #canvas-holder {
-    margin-top: 15px;
-  }
-
-  .button-container {
-    margin-bottom: 15px;
-  }
-
-  /* Ensure 'Generate Random Graph' and 'C Function' fit well */
+  /* Adjust button styles for mobile */
   .side-btn {
-    font-size: 14px;
-    padding: 8px;
-    margin: 5px 0;
+    font-size: 14px; /* Smaller text */
+    padding: 8px; /* Less padding */
+    margin: 5px 0; /* Spacing between buttons */
+    width: 100%; /* Full width for buttons */
+  }
+
+  /* Ensure content area adjusts properly */
+  .content {
+    margin-left: 140px; /* Push content right to accommodate sidebar */
+    padding: 10px;
+    max-width: calc(100% - 140px);
+    box-sizing: border-box;
   }
 }
