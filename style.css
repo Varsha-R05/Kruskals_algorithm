@@ -74,7 +74,7 @@ button:hover {
 
 @media (max-width: 480px) {
   .container {
-    flex-direction: column; /* Stack the sidebar above the content */
+    flex-direction: row; /* Stack the sidebar above the content */
   }
 
   .sidebar {
@@ -84,7 +84,7 @@ button:hover {
   }
 
   .content {
-    width: 100%; /* Content takes full width */
+    width: 90%; /* Content takes full width */
     padding: 10px;
   }
 
