@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kruskal's Algorithm - MST Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #34495e;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: #2c3e50;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .sidebar button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar button:hover {
+            background-color: #2980b9;
+        }
+
+        .graph-container {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #ffffff;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-section {
+            display: none;
+            line-height: 1.7;
+        }
+
+        .content-section ul, ol {
+            margin-left: 20px;
+        }
+
+        .button-container button {
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            margin-right: 10px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container button:hover {
+            background-color: #27ae60;
+        }
+
+        #step-log {
+            width: 400px;
+            max-height: 600px;
+            overflow-y: auto;
+            background: #fdfdfd;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 16px;
+            font-family: sans-serif;
+            line-height: 1.5;
+            box-sizing: border-box;
+            border-radius: 6px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .graph-container {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <!-- Sidebar -->
+<div class="sidebar">
+    <h2 style="color: white; text-align: center; margin-bottom: 15px;">Kruskal's Algorithm</h2>
+    <button onclick="showSection('introduction')">Introduction</button>
+    <button onclick="showSection('c-function')">C Function</button>
+    <button onclick="showSection('demo')">Demo</button>
+    <button onclick="showSection('time-complexity')">Time Complexity</button>
+    <button onclick="showSection('real-time-app')">Real-Time Application</button>
+</div>
+
+
+        <!-- Main Graph/Content -->
+        <div class="graph-container">
+
+            <!-- Introduction -->
+            <div id="introduction" class="content-section">
+                <h2>Introduction </h2>
+                <p>Kruskal’s algorithm is a greedy algorithm used to find the Minimum Spanning Tree (MST) for a weighted, connected, and undirected graph. A minimum spanning tree is a subgraph that connects all the vertices present in the main graph with the least possible edges and minimum cost without forming cycles.</p>
+                <p>The algorithm begins by sorting all edges in increasing order of weight and iteratively adds the smallest edge to the MST, ensuring that no cycles are formed. This process continues until all vertices are connected.</p>
+                <p><strong>Steps to find the MST using Kruskal’s Algorithm:</strong></p>
+                <ol>
+                    <li>Sort all the edges in non-decreasing order of their weights.</li>
+                    <li>Pick the smallest edge. Check if it forms a cycle. If it does not, include it; otherwise, discard it.</li>
+                    <li>Repeat until the MST contains exactly (V - 1) edges, where V is the number of vertices.</li>
+                    <li>Once all vertices are connected, the MST is formed with minimum cost.</li>
+                </ol>
+            </div>
+
+            <!-- C Function -->
+<div id="c-function" class="content-section">
+    <h2>C Function </h2>
+    <pre><code>
+#include &lt;stdio.h&gt;
+void kruskal(int cost[20][20], int n)
+{
+    int ne = 1, min_cost = 0;
+    int i, j, a, b, min, u, v;
+    int parent[20];
+    for(i = 1; i &lt;= n; i++) {
+        parent[i] = 0;
+    }
+    printf("\nThe edges of the spanning tree are:\n");
+    while(ne &lt; n) {
+        min = 999;
+        for(i = 1; i &lt;= n; i++) {
+            for(j = 1; j &lt;= n; j++) {
+                if(cost[i][j] &lt; min) {
+                    min = cost[i][j];
+                    a = u = i;
+                    b = v = j;
+                }
+            }
+        }
+        while(parent[u]) u = parent[u];
+        while(parent[v]) v = parent[v];
+        if(u != v) {
+            printf("Edge %d\t(%d -> %d) = %d\n", ne++, a, b, min);
+            min_cost += min;
+            parent[v] = u;
+        }
+        cost[a][b] = cost[b][a] = 999;
+    }
+    printf("\nMinimum cost = %d\n", min_cost);
+}
+
+int main()
+{
+    int i, j, n, cost[20][20];
+    printf("Enter number of vertices:");
+    scanf("%d", &amp;n);
+    printf("Enter the cost matrix:\n");
+    for(i = 1; i &lt;= n; i++) {
+        for(j = 1; j &lt;= n; j++) {
+            scanf("%d", &amp;cost[i][j]);
+        }
+    }
+    kruskal(cost, n);
+    return 0;
+}
+    </code></pre>
+</div>
+
+
+            <!-- Demo Section -->
+            <div id="demo" class="content-section">
+                <h2>Demo</h2>
+                <div class="button-container" style="margin-bottom: 20px;">
+                    <button onclick="runKruskal()">Find MST</button>
+                    <button onclick="resetGraph()">Reset Graph</button>
+                    <button onclick="generateGraph()">Generate Random Graph</button>
+                </div>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <div id="canvas-holder" style="flex-shrink: 0;"></div>
+                    <div id="step-log"><strong>Steps:</strong><br></div>
+                </div>
+            </div>
+
+            <!-- Time Complexity -->
+            <div id="time-complexity" class="content-section" style="display: none;">
+                <h2>Time Complexity</h2>
+                <p>Kruskal’s Algorithm is an efficient method for finding the Minimum Spanning Tree (MST) of a connected, undirected, weighted graph. Its time complexity is primarily influenced by two operations: sorting the edges and performing union-find operations to detect cycles.</p>
+                
+                <p><strong>Sorting Edges:</strong></p>
+                <p>The first step of Kruskal’s Algorithm involves sorting all the edges of the graph in non-decreasing order of their weights. If there are <code>E</code> edges in the graph, this sorting step takes <code>O(E log E)</code> time.</p>
+            
+                <p><strong>Union-Find Operations:</strong></p>
+                <p>After sorting, the algorithm checks each edge to determine whether it forms a cycle with the edges already included in the MST. To do this efficiently, it uses the Union-Find (Disjoint Set Union) data structure, which supports union and find operations. With optimizations like path compression and union by rank, each operation takes approximately <code>O(log N)</code> time, where <code>N</code> is the number of vertices. Since we may process all <code>E</code> edges, this step takes <code>O(E log N)</code> time in total.</p>
+            
+                <p><strong>Total Time Complexity:</strong></p>
+                <p>Combining both steps, the total time complexity of Kruskal’s Algorithm is:</p>
+                <p><code>O(E log E + E log N)</code></p>
+                <p>This is often simplified to <code>O(E log E)</code> because for most connected graphs, the number of edges <code>E</code> is greater than the number of vertices <code>N</code>, and <code>log E</code> dominates <code>log N</code>.</p>
+            </div>
+            
+
+            <!-- Real-Time Applications -->
+            <div id="real-time-app" class="content-section">
+                <h2>Real-Time Applications</h2>
+                <p>Kruskal’s Algorithm is widely used in various fields to build cost-efficient, cycle-free connections. It’s especially useful in:</p>
+                <ul>
+                    <li><strong>Network Design</strong> – Reduces cabling cost in telecom and computer networks.</li>
+                    <li><strong>Power Grids</strong> – Connects electrical stations efficiently with minimal wiring.</li>
+                    <li><strong>Transport Planning</strong> – Optimizes roads and railway construction with least cost.</li>
+                    <li><strong>Image Processing</strong> – Helps in segmentation by grouping pixels with similar features.</li>
+                    <li><strong>Machine Learning</strong> – Assists in clustering data points with minimum connections.</li>
+                    <li><strong>GIS Mapping</strong> – Lays out pipelines or irrigation systems economically.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
