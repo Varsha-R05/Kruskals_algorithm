@@ -71,5 +71,37 @@ button:hover {
     text-align: center;
     margin-top: 20px;
 }
+@media (max-width: 480px) {
+  /* Ensuring the layout stays as it is on laptop */
+  .container {
+    display: flex;
+    flex-direction: row; /* Keep layout horizontal */
+  }
+
+  .sidebar {
+    width: 140px; /* Narrower sidebar */
+    padding: 10px;
+  }
+
+  .content {
+    padding: 10px;
+    margin-left: 140px; /* Content pushed to the right */
+    max-width: calc(100% - 140px); /* Ensure content doesn't overflow */
+    box-sizing: border-box;
+  }
+
+  /* Button styling */
+  .side-btn {
+    font-size: 14px; /* Smaller text for buttons */
+    padding: 8px; /* Less padding */
+    margin: 5px 0; /* Less margin */
+    width: 100%; /* Buttons take full width of sidebar */
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
 
 
