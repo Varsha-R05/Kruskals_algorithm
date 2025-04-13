@@ -7,10 +7,12 @@ body {
 
 .container {
     display: flex;
-    flex-direction: row; /* Sidebar always on the left */
+    flex-direction: row; /* Keep sidebar always on the left */
     height: 100vh;
     overflow: hidden;
+    flex-wrap: nowrap; /* Prevent wrap on small screens */
 }
+
 
 /* Sidebar */
 .sidebar {
@@ -86,13 +88,15 @@ button:hover {
 
 @media screen and (max-width: 768px) {
     .container {
-        flex-direction: row; /* Keep sidebar on the left */
-        flex-wrap: nowrap;
+        flex-direction: row; /* Still side-by-side */
+        flex-wrap: nowrap;  /* Don't wrap */
+        height: 100vh;
     }
 
     .sidebar {
-        width: 200px;
-        flex-direction: column; /* Stack buttons vertically */
+        width: 180px;
+        flex-direction: column;
+        flex-shrink: 0;
         justify-content: flex-start;
         align-items: stretch;
         overflow-y: auto;
@@ -101,6 +105,7 @@ button:hover {
     .graph-container {
         flex: 1;
         padding: 10px;
+        overflow-y: auto;
     }
 
     .sidebar button {
@@ -109,3 +114,4 @@ button:hover {
         width: 100%;
     }
 }
+
