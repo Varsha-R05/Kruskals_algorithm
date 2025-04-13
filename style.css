@@ -84,23 +84,28 @@ button:hover {
     margin-top: 20px;
 }
 
-/* Responsive (Mobile) */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .container {
-        flex-direction: row; /* Keep sidebar left */
+        flex-direction: row; /* Keep sidebar on the left */
+        flex-wrap: nowrap;
     }
 
     .sidebar {
-        width: 150px; /* even narrower for small phones */
+        width: 200px;
+        flex-direction: column; /* Stack buttons vertically */
+        justify-content: flex-start;
+        align-items: stretch;
+        overflow-y: auto;
+    }
+
+    .graph-container {
+        flex: 1;
         padding: 10px;
     }
 
     .sidebar button {
-        font-size: 12px;
-        padding: 8px;
-    }
-
-    .graph-container {
+        font-size: 14px;
         padding: 10px;
+        width: 100%;
     }
 }
