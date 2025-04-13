@@ -4,73 +4,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
-.container {
-    display: flex;
-}
-
-.sidebar {
-    width: 220px;
-    background-color: #007BFF;
-    padding: 20px;
-    height: 100vh;
-}
-
-.side-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    background-color: white;
-    color: black;
-    text-align: left;
-    border-radius: 5px;
-}
-
-.side-btn:hover {
-    background-color: lightgray;
-}
-
-.content {
-    flex: 1;
-    padding: 20px;
-}
-
-h1, h2, h3 {
-    text-align: center;
-}
-
-.section {
-    display: none;
-}
-
-.button-container {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-button {
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 5px;
-    margin: 5px;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-#canvas-holder {
-    text-align: center;
-    margin-top: 20px;
-}
 /* Overall container layout */
 .container {
     display: flex;
@@ -117,6 +50,49 @@ button:hover {
     box-sizing: border-box;
     background-color: #ffffff;
 }
+
+.side-btn:hover {
+    background-color: lightgray;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.section {
+    display: none;
+}
+
+.button-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#canvas-holder {
+    text-align: center;
+    margin-top: 20px;
+}
+
 
 /* Make sure layout stays side-by-side on all screens */
 @media (max-width: 768px) {
