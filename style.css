@@ -72,27 +72,5 @@ button:hover {
     margin-top: 20px;
 }
 
-@media screen and (max-width: 768px) {
-    .container {
-        flex-direction: row; /* Force horizontal layout */
-        flex-wrap: nowrap;
-        height: 100vh;
-    }
 
-    .sidebar {
-        width: 200px;
-        min-width: 140px;
-        flex-shrink: 0;
-        height: 100vh;
-        overflow-y: auto;
-    }
-
-    .graph-container {
-        flex: 1;
-        height: 100vh;
-        overflow-y: auto;
-        padding: 10px;
-        box-sizing: border-box;
-    }
-}
 
