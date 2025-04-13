@@ -71,35 +71,73 @@ button:hover {
     text-align: center;
     margin-top: 20px;
 }
+/* Overall container layout */
+.container {
+    display: flex;
+    flex-direction: row; /* Always sidebar on the left */
+    height: 100vh;
+    overflow: hidden;
+}
 
-/* ✅ Remove column layout on smaller screens */
-@media screen and (max-width: 768px) {
+/* Sidebar styling */
+.sidebar {
+    width: 220px;
+    background-color: #2c3e50;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Buttons inside the sidebar */
+.sidebar button {
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background-color: #2980b9;
+}
+
+/* Main content area */
+.graph-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+/* Make sure layout stays side-by-side on all screens */
+@media (max-width: 768px) {
     .container {
-        flex-direction: row; /* Keep layout horizontal */
+        flex-direction: row;
     }
 
     .sidebar {
-        width: 160px;
-        padding: 10px;
-        gap: 8px;
+        width: 180px;
+        padding: 15px;
+    }
+
+    .sidebar button {
+        font-size: 13px;
+        padding: 8px;
     }
 
     .graph-container {
         padding: 10px;
     }
-
-    .sidebar button {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    p, li {
-        font-size: 15px;
-    }
 }
+
 
 
