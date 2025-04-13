@@ -7,29 +7,24 @@ body {
 
 .container {
     display: flex;
-    flex-direction: row; /* Keep sidebar always on the left */
+    flex-direction: row; /* Sidebar always on the left */
     height: 100vh;
     overflow: hidden;
-    flex-wrap: nowrap; /* Prevent wrap on small screens */
 }
 
-
+/* Sidebar */
 .sidebar {
-    width: 180px;
+    width: 200px;
     background-color: #2c3e50;
     padding: 15px;
     box-sizing: border-box;
     flex-shrink: 0;
-    overflow-y: auto;         /* Enables vertical scroll */
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-height: 100vh;        /* Ensure it doesn't grow beyond screen */
-}
-
-.sidebar {
-    -webkit-overflow-scrolling: touch; /* For iOS smooth scroll */
-    scrollbar-width: thin;             /* Optional for Firefox */
+    overflow-y: auto; /* Enables vertical scroll */
+    max-height: 100vh;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Sidebar buttons */
@@ -91,32 +86,21 @@ button:hover {
     margin-top: 20px;
 }
 
+/* Responsive Layout: Sidebar still on left */
 @media screen and (max-width: 768px) {
     .container {
-        flex-direction: row; /* Still side-by-side */
-        flex-wrap: nowrap;  /* Don't wrap */
-        height: 100vh;
+        flex-direction: row; /* Keep horizontal layout */
     }
 
     .sidebar {
         width: 180px;
-        flex-direction: column;
-        flex-shrink: 0;
-        justify-content: flex-start;
-        align-items: stretch;
+        padding: 10px;
         overflow-y: auto;
+        max-height: 100vh;
     }
 
     .graph-container {
         flex: 1;
         padding: 10px;
-        overflow-y: auto;
-    }
-
-    .sidebar button {
-        font-size: 14px;
-        padding: 10px;
-        width: 100%;
     }
 }
-
