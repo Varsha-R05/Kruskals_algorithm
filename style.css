@@ -72,31 +72,27 @@ button:hover {
     margin-top: 20px;
 }
 
-@media (max-width: 480px) {
-  .container {
-    flex-direction: row;        /* Keep horizontal layout */
-    flex-wrap: nowrap;
-  }
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: row; /* Force horizontal layout */
+        flex-wrap: nowrap;
+        height: 100vh;
+    }
 
-  .sidebar {
-    width: 140px;
-    padding: 10px;
-    height: 100vh;
-    overflow-y: auto;
-    box-sizing: border-box;
-  }
+    .sidebar {
+        width: 200px;
+        min-width: 140px;
+        flex-shrink: 0;
+        height: 100vh;
+        overflow-y: auto;
+    }
 
-  .content, .graph-container {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    box-sizing: border-box;
-  }
-
-  .side-btn, .sidebar button {
-    font-size: 13px;
-    padding: 6px;
-    margin: 5px 0;
-    white-space: nowrap;  /* Prevent button text from wrapping */
-  }
+    .graph-container {
+        flex: 1;
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+        box-sizing: border-box;
+    }
 }
+
