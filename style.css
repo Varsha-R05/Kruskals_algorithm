@@ -72,36 +72,31 @@ button:hover {
     margin-top: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .container {
-    flex-direction: row; /* Keep layout horizontal on mobile */
-    flex-wrap: nowrap;   /* Prevent wrapping */
+    flex-direction: row;        /* Keep horizontal layout */
+    flex-wrap: nowrap;
   }
 
   .sidebar {
-    width: 160px;
+    width: 140px;
     padding: 10px;
     height: 100vh;
     overflow-y: auto;
+    box-sizing: border-box;
   }
 
-  .content {
+  .content, .graph-container {
     flex: 1;
     padding: 10px;
     overflow-y: auto;
+    box-sizing: border-box;
   }
 
-  .side-btn {
-    font-size: 14px;
-    padding: 8px;
+  .side-btn, .sidebar button {
+    font-size: 13px;
+    padding: 6px;
     margin: 5px 0;
-  }
-
-  button {
-    font-size: 14px;
-    padding: 8px;
+    white-space: nowrap;  /* Prevent button text from wrapping */
   }
 }
-
-
-
