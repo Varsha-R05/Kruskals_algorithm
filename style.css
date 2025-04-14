@@ -105,16 +105,22 @@ button:hover {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around; /* Distribute buttons */
+        justify-content: flex-start; /* Align buttons to the left */
         gap: 5px;
     }
 
     .side-btn {
-        width: calc(50% - 10px);
-        padding: 10px 5px;
-        margin: 5px 0;
+        width: auto; /* Adjust width based on content */
+        padding: 10px 15px;
+        margin: 5px 5px 5px 0; /* Add right margin for spacing */
         font-size: 14px;
         text-align: center;
+    }
+
+    /* Target the "Introduction" button specifically */
+    .side-btn:first-child { /* Assuming "Introduction" is the first button */
+        width: 100%; /* Make it take the full width and go to the next line */
+        margin-bottom: 10px; /* Add some space below */
     }
 
     .content {
@@ -162,6 +168,7 @@ button:hover {
 /* Very small phone adjustments */
 @media (max-width: 360px) {
     .side-btn {
-        width: 100%; /* Single column for very small screens */
+        font-size: 13px;
+        padding: 8px 10px;
     }
 }
