@@ -103,24 +103,26 @@ button:hover {
         background-color: #007BFF;
         padding: 10px;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start; /* Align buttons to the left */
-        gap: 5px;
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: stretch; /* Make buttons take full width */
+        gap: 8px; /* Space between buttons */
     }
 
     .side-btn {
-        width: auto; /* Adjust width based on content */
-        padding: 10px 15px;
-        margin: 5px 5px 5px 0; /* Add right margin for spacing */
-        font-size: 14px;
-        text-align: center;
+        width: 100%; /* Full width for better visibility */
+        padding: 12px 15px; /* Comfortable padding */
+        margin: 0; /* Remove individual button margins */
+        font-size: 16px; /* Clear and readable font size */
+        text-align: left; /* Keep text left-aligned */
+        border: none;
+        border-radius: 5px;
+        background-color: white;
+        color: black;
+        box-sizing: border-box; /* Ensure padding doesn't affect width */
     }
 
-    /* Target the "Introduction" button specifically */
-    .side-btn:first-child { /* Assuming "Introduction" is the first button */
-        width: 100%; /* Make it take the full width and go to the next line */
-        margin-bottom: 10px; /* Add some space below */
+    .side-btn:hover {
+        background-color: lightgray;
     }
 
     .content {
@@ -168,7 +170,7 @@ button:hover {
 /* Very small phone adjustments */
 @media (max-width: 360px) {
     .side-btn {
-        font-size: 13px;
-        padding: 8px 10px;
+        font-size: 15px;
+        padding: 10px 12px;
     }
 }
